@@ -1,3 +1,4 @@
+import { ProfilePage } from './../profile/profile';
 import { TakePicturePage } from './../take-picture/take-picture';
 import { PhotosPage } from './../photos/photos';
 import { Component } from '@angular/core';
@@ -14,7 +15,7 @@ export class HomePage {
 
   constructor(private navCtrl: NavController, private modalController: ModalController) {
     this.photosTab = PhotosPage;
-    this.profileTab = PhotosPage;
+    this.profileTab = ProfilePage;
   }
 
   showSendPhoto(){
