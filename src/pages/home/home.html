@@ -1,30 +1,20 @@
-
-<ion-grid fixed>
-  <ion-row align-items-center justify-content-center>
-      <ion-col col-12 col-sm-12 col-md-6>
-        <ion-header>
-            <br>
-            <br>
-            <br>
-            <ion-toolbar>
-                <ion-title text-center class="oleo-script">Mourogram</ion-title>
-                <ion-buttons end>
-                    <button ion-button icon-only (click)="showSendPhoto()">
-                      <ion-icon name="camera"></ion-icon>
-                    </button>
-                </ion-buttons>
-            </ion-toolbar>
-          </ion-header>
-      </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-header>
+  <ion-toolbar>
+      <ion-title text-center class="oleo-script">Mourogram</ion-title>
+      <ion-buttons end>
+          <button ion-button icon-only (click)="showSendPhoto()">
+            <ion-icon name="camera"></ion-icon>
+          </button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding class="auto-scroll">
-  <ion-tabs>
-    <ion-tab tabIcon="home" [root]="photosTab"></ion-tab>
-    <ion-tab tabIcon="search" [root]="profileTab"></ion-tab>
-    <ion-tab tabIcon="add-circle" [root]="profileTab"></ion-tab>
-    <ion-tab tabIcon="heart" [root]="profileTab"></ion-tab>
-    <ion-tab tabIcon="contact" [root]="profileTab"></ion-tab>
-  </ion-tabs>
+    <ion-tabs>
+      <ion-tab tabIcon="home" [root]="photosTab"></ion-tab>
+      <ion-tab tabIcon="search" [root]="profileTab"></ion-tab>
+      <ion-tab tabIcon="add-circle" [root]="profileTab"></ion-tab>
+      <ion-tab tabIcon="heart" [root]="profileTab"></ion-tab>
+      <ion-tab tabIcon="contact" [root]="profileTab"></ion-tab>
+    </ion-tabs>
 </ion-content>

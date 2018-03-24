@@ -1,4 +1,4 @@
-import { LoginPage } from './../login/login';
+import { PhotosPage } from './../photos/photos';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
@@ -12,8 +12,8 @@ export class HomePage {
   profileTab: any;
 
   constructor(public navCtrl: NavController) {
-    this.photosTab = LoginPage;
-    this.profileTab = LoginPage;
+    this.photosTab = PhotosPage;
+    this.profileTab = PhotosPage;
   }
 
 }
