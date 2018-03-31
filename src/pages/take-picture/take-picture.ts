@@ -8,13 +8,11 @@ import { ViewController, ModalController } from 'ionic-angular';
 })
 export class TakePicturePage {
 
-  constructor(private viewCtrl: ViewController, private modalCtrl: ModalController) {
-    let modal = this.modalCtrl.create(SendPhotoPage)
-    modal.present()
-  }
+  constructor(private viewCtrl: ViewController, private modalCtrl: ModalController) {  }
 
   takePicture(){
-
+    let modal = this.modalCtrl.create(SendPhotoPage)
+    modal.present()
   }
 
   dismiss() {
