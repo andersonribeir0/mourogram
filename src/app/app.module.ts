@@ -3,6 +3,9 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -12,6 +15,18 @@ import { PhotosPage } from './../pages/photos/photos';
 import { TakePicturePage } from './../pages/take-picture/take-picture';
 import { SendPhotoPage } from '../pages/send-photo/send-photo';
 import { ProfilePage } from '../pages/profile/profile';
+
+
+export const environment = {
+  firebase: {
+      apiKey: "AIzaSyBAbJ3_gLdLldC3jLYfJxSL4j1aYB1x62w",
+      authDomain: "mourogram.firebaseapp.com",
+      databaseURL: "https://mourogram.firebaseio.com",
+      projectId: "mourogram",
+      storageBucket: "mourogram.appspot.com",
+      messagingSenderId: "385343119587"
+    }
+};
 
 @NgModule({
   declarations: [
@@ -26,7 +41,10 @@ import { ProfilePage } from '../pages/profile/profile';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
