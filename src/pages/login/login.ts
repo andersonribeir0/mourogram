@@ -32,6 +32,12 @@ export class LoginPage {
         Validators.required
       ])]
     });
+
+    afAuth.authState.subscribe( user => {
+      if(user) {
+        this.navCtrl.setRoot(HomePage);
+      }
+    });
   }
 
   goToSignup(){
