@@ -12,18 +12,10 @@
 <ion-content class="auto-scroll">
   <ion-card>
 
-    <ion-slides>
-      <ion-slide text-center>
-        <img src="https://picsum.photos/500/500/?random" alt="" class="inkwell" style="width: 100%">
-        <small>inkwell</small>
-      </ion-slide>
-      <ion-slide text-center>
-        <img src="https://picsum.photos/500/500/?random" alt="" class="nashville" style="width: 100%">
-        <small>nashville</small>
-      </ion-slide>
-      <ion-slide text-center>
-        <img src="https://picsum.photos/500/500/?random" alt="" class="willow" style="width: 100%">
-        <small>willow</small>
+    <ion-slides (ionSlideDidChange)="changeFilter()">
+      <ion-slide text-center *ngFor= "let filter of filters">
+        <img src="{{ photo }}" alt="" class="{{ filter }}" style="width: 100%">
+        <small>{{ filter }}</small>
       </ion-slide>
     </ion-slides>
 
@@ -40,8 +32,8 @@
 
     <ion-row no-padding>
       <ion-col>
-        <button ion-button clear small color="danger" icon-start>
-          <ion-icon name='pin'></ion-icon>Ativar Localização</button>
+        <button ion-button clear small color="danger" icon-start *ngIf="location == ''" (click)="getLocation()"><ion-icon name='pin'></ion-icon>Ativar Localização</button>
+        <button ion-button clear small color="danger" icon-start *ngIf="location != ''"><ion-icon name='pin'></ion-icon>{{ location }}</button>
       </ion-col>
     </ion-row>
 

@@ -8,11 +8,39 @@ import { ViewController, ModalController } from 'ionic-angular';
 })
 export class TakePicturePage {
 
-  constructor(private viewCtrl: ViewController, private modalCtrl: ModalController) {  }
+  constructor(private viewCtrl: ViewController, private modalCtrl: ModalController) {
+
+  }
+
+  ionViewDidLoad(){
+    var video = <any>document.getElementById('video');
+    
+    if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia){
+      navigator.mediaDevices
+        .getUserMedia({ video: true})
+        .then(stream => {
+          video.src = window.URL.createObjectURL(stream);
+          video.play();
+        })
+    }
+
+  }
 
   takePicture(){
-    let modal = this.modalCtrl.create(SendPhotoPage)
-    modal.present()
+    var video = <anu>document.getElementById('video');
+    var canvas = <any>document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    context.drawImage(video, 0, 0, 320, 240);
+
+    video.classList.add('animated');
+    video.classList.add('flash');
+
+    setTimeout( () => {
+      this.viewCtrl.dismiss();
+      let modal = this.modalCtrl.create(SendPhotoPage, {photo: canvas.toDataURL()})
+      modal.present()
+    }, 800);
+
   }
 
   dismiss() {
