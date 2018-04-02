@@ -27,7 +27,7 @@ export class TakePicturePage {
   }
 
   takePicture(){
-    var video = <anu>document.getElementById('video');
+    var video = <any>document.getElementById('video');
     var canvas = <any>document.getElementById('canvas');
     var context = canvas.getContext('2d');
     context.drawImage(video, 0, 0, 320, 240);
