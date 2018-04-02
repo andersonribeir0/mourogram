@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, ModalController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { ShowMapPage } from '../show-map/show-map';
 
 @Component({
   selector: 'page-photos',
@@ -13,6 +14,7 @@ export class PhotosPage {
   constructor(
     private loadingCtrl: LoadingController,
     private db: AngularFireDatabase,
+    private modalCtrl: ModalController
   ) {
     let loader = this.loadingCtrl.create({ content: "Carregando fotos..."});
     loader.present();
@@ -21,6 +23,11 @@ export class PhotosPage {
       this.photos = photos.reverse();
       loader.dismiss();
     })
+  }
+  
+  showMap(location) {
+    let modal = this.modalCtrl.create(ShowMapPage, { location: location})
+    modal.present()
   }
 
 }
