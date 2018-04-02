@@ -16,18 +16,8 @@ import { TakePicturePage } from './../pages/take-picture/take-picture';
 import { SendPhotoPage } from '../pages/send-photo/send-photo';
 import { ProfilePage } from '../pages/profile/profile';
 import { ShowMapPage } from '../pages/show-map/show-map';
+import { ENV } from '@app/env'
 
-
-export const environment = {
-  firebase: {
-      apiKey: "AIzaSyBAbJ3_gLdLldC3jLYfJxSL4j1aYB1x62w",
-      authDomain: "mourogram.firebaseapp.com",
-      databaseURL: "https://mourogram.firebaseio.com",
-      projectId: "mourogram",
-      storageBucket: "mourogram.appspot.com",
-      messagingSenderId: "385343119587"
-    }
-};
 
 @NgModule({
   declarations: [
@@ -44,7 +34,7 @@ export const environment = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(ENV.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
   ],

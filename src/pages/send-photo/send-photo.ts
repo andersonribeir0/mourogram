@@ -127,7 +127,7 @@ export class SendPhotoPage {
       this.listObservable = this.photos.snapshotChanges();
       this.listObservable.subscribe()
       this.navCtrl.setRoot(HomePage)
-    }, () => {
+    }, (err) => {
       loader.dismiss()
       let alert = this.alertCrtl.create({
         title: 'Ops, algo deu errado',
