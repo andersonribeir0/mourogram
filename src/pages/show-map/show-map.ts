@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ViewController, NavParams } from 'ionic-angular';
+import { ENV } from '@app/env';
 
 @Component({
   selector: 'page-show-map',
@@ -15,7 +16,8 @@ export class ShowMapPage {
   }
 
   ionViewDidLoad() {
-    let html = '<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBbI6Q4L6K90A74du5XfTWyhLoJFCYljPM&q='+ this.location + '" allowfullscreen></iframe>' 
+    let src = `https://www.google.com/maps/embed/v1/place?key=${ENV.google_api_key}&q=${this.location} allowfullscreen></iframe>`
+    let html = `<iframe width="600" height="450" frameborder="0" style="border:0" src=${src}`;
     document.getElementById('map').innerHTML = html;
   }
 
