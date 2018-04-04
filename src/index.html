@@ -45,6 +45,23 @@
 
   <!-- The main bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (!Notification) {
+          alert('Este browser não suporta notificação.')
+          return
+        }
 
+        if (Notification.permission !== "granted"){
+          Notification.requestPermission()
+        }
+
+        var notification = new Notification('Bem vindo ao Mourogram!', {
+          icon: '/assets/icon/icon-512x512.png',
+          body: "Seja bem vindo a nossa rede!",
+          vibrate: [200, 100, 200, 100, 200, 100, 200]
+        })
+      })
+    </script>
 </body>
 </html>
