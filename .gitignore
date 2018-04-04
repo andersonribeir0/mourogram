@@ -38,3 +38,6 @@ UserInterfaceState.xcuserstate
 # Environment Variables
 **/environment.*
 !**/environment.model.ts
+*.firebaserc
+database.rules.json
+firebase.json
